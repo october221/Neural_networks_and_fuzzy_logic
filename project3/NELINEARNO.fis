@@ -1,0 +1,46 @@
+[System]
+Name='NELINEARNO'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=8
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='GRESKA'
+Range=[-1 1]
+NumMFs=2
+MF1='NEG':'zmf',[-1 1]
+MF2='POZ':'smf',[-1 1]
+
+[Input2]
+Name='IZVOD'
+Range=[-1 1]
+NumMFs=2
+MF1='NEG':'zmf',[-1 1]
+MF2='POZ':'smf',[-1 1]
+
+[Output1]
+Name='IZLAZ'
+Range=[-0.4 0.4]
+NumMFs=5
+MF1='VELIKO_NEG':'constant',[-0.4]
+MF2='VELIKO_POZ':'constant',[0.4]
+MF3='POZ':'constant',[0.2]
+MF4='NEG':'constant',[-0.2]
+MF5='NULA':'constant',[0]
+
+[Rules]
+1 1, 1 (1) : 1
+2 2, 2 (1) : 1
+1 0, 4 (1) : 1
+2 1, 5 (1) : 1
+2 0, 3 (1) : 1
+2 2, 2 (1) : 1
+0 1, 4 (1) : 1
+0 2, 3 (1) : 1
